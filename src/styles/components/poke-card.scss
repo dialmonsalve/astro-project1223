@@ -1,0 +1,55 @@
+@use '@/styles/abstract/variables' as v;
+
+.poke-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  width: 80%;
+  
+}
+.poke-card{
+  flex-direction: column;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: v.$color-black-3;
+  border-radius: .5rem;
+  transition: transform .2s ease-in-out;
+  padding: 1.5rem;
+  text-transform: capitalize;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &__image{
+    width: 60%;
+  }
+
+  &__name{
+    font-size: v.$font-size + .6rem;
+    color: whitesmoke;
+  }
+  
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    font-size: 1.2rem;
+    
+    &--add, &--more{
+      border: 1px solid v.$color-gray-3;
+      padding: 1rem 1.5rem;
+      border-radius: .5rem;
+      background-color: v.$color-white;
+      color: purple;
+      transition: background-color .2s ease;
+      
+      &:hover {
+        background-color: purple;
+        color: v.$color-white;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use '../abstract/variables' as v;
+
+.section-nav {
+  width: 80%;
+  margin: 0 auto;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+  }
+  &__item {
+  }
+  &__link {
+    padding: 0.8rem;
+    font-size: v.$font-size;
+    border-radius: 0.3rem;
+    color: rgb(34 32 32/ 0.82);
+    font-weight: 700;
+    border: 1px solid rgb(34 32 32/ 0.82);
+
+    &:hover {
+      background-color: purple;
+      color: white;
+    }
+  }
+}
+
+.active-link{
+  background-color: purple;
+      color: white;
+}

@@ -1,0 +1,5 @@
+@use '../abstract/variables' as v;
+
+button {
+  background-color: v.$color-primary;
+}

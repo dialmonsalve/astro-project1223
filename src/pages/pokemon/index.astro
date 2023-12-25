@@ -1,0 +1,36 @@
+---
+import PokeLayout from '../../layouts/pokemonLayout/PokeLayout.astro';
+import PokeCard from '@/components/PokeCard.astro';
+
+import '@/styles/pages/pokemon.scss';
+
+interface PokeData {
+  next: string;
+  results: Results[];
+}
+
+interface Results {
+  url: string;
+}
+
+const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0');
+const data: PokeData = await resp.json();
+
+const pokemons = data.results.map( (pokemon) => {
+  const segments = pokemon.url.split('/');
+  const id = segments.at(-2)!;
+
+  return {
+    id,
+    next: data.next,
+  };
+});
+---
+
+<PokeLayout title="pokemons">
+  <section class="poke-section" >
+    {pokemons.map((pokemon) => (
+      <PokeCard pokemon={pokemon} />
+      ))}
+  </section>
+</PokeLayout>

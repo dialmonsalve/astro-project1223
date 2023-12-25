@@ -1,0 +1,45 @@
+---
+import Control from '@/icons/Control.astro';
+import { PokeImage } from './PokeImage';
+import PokemonLink from './PokemonLink.astro';
+import { FrontChassis } from './FrontChassis';
+import { FrontFrame } from './FrontFrame';
+
+import '@/styles/components/front-pokedex.scss';
+
+interface Props {
+  name: string;
+  id: string;
+}
+
+const { name, id } = Astro.props;
+---
+
+<FrontChassis client:visible >
+  <div class="pokedex-front__header">
+    <div class="pokedex-front__header--mirror"></div>
+    <div class="pokedex-front__header--ball-red"></div>
+    <div class="pokedex-front__header--ball-yellow"></div>
+    <div class="pokedex-front__header--ball-green"></div>
+  </div>
+  <FrontFrame client:visible >
+    <div class="pokedex-front__content--screen">
+      <PokeImage client:only id={id} name={name} >
+        <PokemonLink id={id} name={name} className="pokedex-front__content--image"/>
+      </PokeImage>
+    </div>
+    <div class="pokedex-front__content--controls">
+      <div class="pokedex-front__content--controls-left">
+        <div class="pokedex-front__content--controls-buttons">
+          <div class="pokedex-front__content--controls-round"></div>
+          <div class="pokedex-front__content--controls-green"></div>
+          <div class="pokedex-front__content--controls-yellow"></div>
+        </div>
+        <div class="pokedex-front__content--controls-bigYellow"></div>
+      </div>
+      <div class="pokedex-front__content--controls-right">
+        <Control />
+      </div>
+    </div>
+  </FrontFrame>
+</FrontChassis>

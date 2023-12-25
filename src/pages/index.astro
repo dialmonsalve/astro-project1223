@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/mainLayout/Layout.astro";
+
+const id = 1
+---
+
+<Layout title="Home" >
+  <h1  >Pokemon</h1>
+  <img
+  src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`
+  alt=""
+  style="width:10rem; height:10rem;"
+  transition:name=`pokemon image ${id}`
+/>
+</Layout>
+
+

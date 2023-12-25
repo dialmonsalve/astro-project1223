@@ -1,0 +1,29 @@
+---
+import Pokedex from '@/components/Pokedex.astro';
+import '@/styles/pages/pokemons.scss';
+
+import { getRandomName } from '@/helpers/getRandomPokemons';
+import { Options } from '@/components/Options';
+import { ButtonsPokedex } from '@/components/pokedex/ButtonsPokedex';
+import PokeLayout from '@/layouts/pokemonLayout/PokeLayout.astro';
+import Layout from '@/layouts/mainLayout/Layout.astro';
+
+const questions = await getRandomName();
+
+---
+<PokeLayout title="Quién es ese Pokemon" >
+  <section >
+    <article class="container-image">
+      <h1 class="animated-title">¿Quién es ese Pokemon?</h1
+        >
+        <div class="container-buttons" >
+          <ButtonsPokedex client:visible />
+        </div>
+        <Pokedex name={questions.pokeName} id={questions.pokeId} />
+        
+        <Options questions={questions} client:load />
+      </article>
+    </section>
+</PokeLayout>
+
+

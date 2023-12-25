@@ -1,0 +1,37 @@
+---
+import '@/styles/components/poke-navbar.scss'
+
+interface Navigation {
+  href: string;
+  title: string;
+}
+const LINK_NAVIGATION: Navigation[] = [
+
+  {
+    href: '/pokemon',
+    title: 'PokeHome',
+  },
+  {
+    href: '/pokemon/poke-game',
+    title: '¿Quién es ese pokemon?',
+  },
+  {
+    href: '/pokemon/poke-favorites',
+    title: 'Favorites',
+  },
+];
+const {pathname} = Astro.url
+---
+<section class="section-nav" >
+  <ul class="section-nav__container" >
+    {
+      LINK_NAVIGATION.map((link) => (
+        <li class={`section-nav__item`} >
+          <a class={`section-nav__link ${pathname===link.href ? 'active-link': ''}`} href={link.href}>
+            {link.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

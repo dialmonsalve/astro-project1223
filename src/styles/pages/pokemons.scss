@@ -1,0 +1,82 @@
+.animated-title {
+  font-size: 2.6rem;
+  transition: all 0.5s ease-in-out;
+  color: purple;
+}
+
+.container-image{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+
+}
+.container-options {
+  display: flex;
+  gap: 2rem;
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  
+  &__option {
+    font-size: 1.4rem;
+    border: 1px solid rgb(34 32 32/ 0.82);
+    padding: .8rem 8rem;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    color: rgb(34 32 32/ 0.82);
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+      background-color: purple;
+      color: white;
+    }
+  }
+}
+
+.container-buttons{
+  display: flex;
+  // flex-direction: column;
+  gap: 1rem;
+
+  &__black, &__original {
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    transition: background-color .2s ease-in-out;
+  }
+
+  &__black {
+    border: 2px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &__original {
+    border: 2px solid #db3986;
+    color: #db3986;
+
+    &:hover {
+      background-color: #db3986;
+      color: white;
+    }
+  }
+}
+
+.active-black {
+  background-color: black;
+  color: white;
+}
+
+.active-original {
+  background-color: #db3986;
+  color: white;
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "/home/dialmonsalve/Documents/Programacion/Astro/project1223",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/components": [
+        "src/components/*"
+      ],
+      "@/icons": [
+        "src/icons/*"
+      ],
+      "@/styles": [
+        "src/styles/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "extends": "astro/tsconfigs/strict"
+}

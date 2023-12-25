@@ -1,0 +1,48 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
+
+
+.nav {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px rgb(.8 .8 .8 / .2);
+  height: 20rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: fixed;
+  right: 3rem;
+  top: 5rem;
+  width: 20rem;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  &__item {
+    transition: transform .2s ease-in-out;
+    &:hover {
+      transform: translate(-3px, -3px);
+    }
+  }
+
+  &__link {
+    padding: .8rem;
+    font-size: v.$font-size + 0.4rem;
+    border-radius: 0.3rem;
+    color: rgb(34 32 32/ 0.82);
+    font-weight: 700;
+
+    &:hover {
+      color: purple;
+    }
+  }
+}
+
+.active-mainLink {
+color: purple;
+}

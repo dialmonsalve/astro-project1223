@@ -1,0 +1,34 @@
+---
+import "@/styles/layout/navbar.scss"
+
+interface Navigation {
+  href: string;
+  title: string;
+}
+const LINK_NAVIGATION: Navigation[] = [
+  {
+    href: '/',
+    title: 'Home',
+  },
+  {
+    href: '/pokemon',
+    title: 'Pokemon',
+  },
+];
+
+const {pathname} = Astro.url
+---
+
+<nav class="nav">
+  <ul class="nav__container">
+    {
+      LINK_NAVIGATION.map((link) => (
+        <li class="nav__item">
+          <a class={`nav__link ${pathname=== link.href ? 'active-mainLink' :''}`} href={link.href}>
+            {link.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

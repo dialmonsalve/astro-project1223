@@ -1,0 +1,53 @@
+---
+import PokemonLink from '@/components/pokedex/PokemonLink.astro';
+import PokeLayout from '@/layouts/pokemonLayout/PokeLayout.astro';
+import '@/styles/pages/pokemon.scss'
+
+const { id } = Astro.params;
+
+const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+const pokemon = await resp.json();
+---
+
+<PokeLayout title={`pokemon | ${pokemon.name}`}>
+  <section class="pokeInfo">
+    <h1 transition:name="pokemon name">{pokemon.name}</h1>
+
+    
+    <article class="pokeInfo__container-image">
+
+
+      <img
+  class="pokeInfo__container-image--image"
+  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+  alt={pokemon.name}
+  id={`pokemon_${id}`}
+  transition:name={`pokemon image ${id}`}
+/>
+
+
+
+      <!-- <PokemonLink id={pokemon.id} name={pokemon.name}
+      className="pokeInfo__container-image--image"
+      /> -->
+    </article>
+  </section>
+</PokeLayout>
+
+<!-- 
+scope="astro-kx5fykck-2"] {
+    view-transition-name: pokemon_image;
+}
+ -->
+
+<!-- 
+[data-astro-transition-scope="astro-kx5fykck-11"] {
+    view-transition-name: pokemon_image;
+} -->
+
+<!-- 
+[data-astro-transition-scope="astro-kx5fykck-2"] {
+    view-transition-name: pokemon_image;
+
+ -->

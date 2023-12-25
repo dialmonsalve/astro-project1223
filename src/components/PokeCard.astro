@@ -1,0 +1,26 @@
+---
+import { type InfoPokemon } from '../interfaces/pokedex';
+
+import '@/styles/components/poke-card.scss';
+import PokemonLink from './pokedex/PokemonLink.astro';
+import { PokemonCard } from './PokemonCard';
+
+interface Props {
+  pokemon: {
+    id: string;
+    next: string;
+  };
+}
+
+const { pokemon } = Astro.props;
+
+const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`);
+const infoPokemon: InfoPokemon = await resp.json();
+---
+
+<PokemonCard client:load  id={pokemon.id} >
+  <PokemonLink id={pokemon.id} name={infoPokemon.name} className='poke-card__image'/>
+  <h4 transition:name="pokemon name" class="poke-card__name">
+    {pokemon.id} - {infoPokemon.name}</h4
+  >
+</PokemonCard>
